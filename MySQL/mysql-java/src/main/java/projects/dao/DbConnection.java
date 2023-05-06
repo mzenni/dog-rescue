@@ -9,10 +9,10 @@ import projects.exception.DbException;
 public class DbConnection {
 	
 	private static final String HOST = "localhost";
-	private static final String PASSWORD = "projects";
+	private static final String PASSWORD = "project";
 	private static final int PORT = 3306;
-	private static final String SCHEMA = "projects";
-	private static final String USER = "projects";
+	private static final String SCHEMA = "project";
+	private static final String USER = "project";
 
 
 	public static Connection getConnection() {
