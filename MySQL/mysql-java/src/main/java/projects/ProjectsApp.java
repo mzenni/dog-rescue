@@ -20,10 +20,15 @@ public class ProjectsApp {
 	// New project service private instance variable type:
 	private ProjectService projectService = new ProjectService(); 
 	
+	// instance variable type project
+	private Project curProject; 
+	
 	// Display List Menu:
 	// @formatter:off
 	private List<String> operations = List.of(
-			"1.) Add a project"
+			"1.) Add a project",
+			"2.) List projects",
+			"3.) Select a project"
 	);
 	// @ formatter:on
 	
@@ -58,6 +63,12 @@ public class ProjectsApp {
 				case 1:
 					createProject();
 					break; 
+				case 2:
+					listProjects(); 
+					break;
+				case 3:
+					selectProject();
+					break; 
 				default:
 					System.out.println("\n" + selection + " is not a valid selection. Please try again.");
 ;				}
@@ -65,13 +76,35 @@ public class ProjectsApp {
 			// Catches error and prints message
 			catch(Exception e){
 				System.out.println("\nError: " + e );
+				
+				//e.printStackTrace(); 
 			}
 		}
 	}
 	
+	private void selectProject() {
+		listProjects();
+		Integer projectId = getIntInput("Enter a project ID to select a project"); 
+		
+		/* Unselect the current project. */
+		curProject = null; 
+		
+		/* This will throw an exception if an invalid project ID is entered. */ 
+		curProject = projectService.fetchProjectById(projectId); 
+		
+	}
+
 	/*
 	 * Gather user input for a project row then call the project service to create the row. 
 	 */
+
+	private void listProjects() {
+		List<Project> projects = projectService.fetchAllProjects(); 
+		
+		System.out.println("\nProjects:"); 
+		
+		projects.forEach(project -> System.out.println("   " + project.getProjectId() + ":  " + project.getProjectName())); 
+	}
 
 	private void createProject() {
 		String projectName = getStringInput("Enter the project name"); 
@@ -201,6 +234,13 @@ public class ProjectsApp {
 		/*for (String line : operations) {
 			System.out.println("   " + line); 
 		} */
+		
+		if(Objects.isNull(curProject)) {
+			System.out.println("\nYou are not working with a project.");
+		}
+		else {
+			System.out.println("\nYou are working with the project: " + curProject); 
+		}
 	}
 	
 	
