@@ -49,13 +49,24 @@ CREATE TABLE project_category(
 
 -- Add some data
 
-INSERT INTO project (project_name, estimated_hours, actual_hours, difficulty, notes) VALUES ('Hang closet door', 4.50, 3.50, 4, 'Use door hangers from Home Depot'); 
-INSERT INTO material (project_id, material_name, num_required, cost) VALUES (1, 'Door hangers', 3); 
-INSERT INTO material (project_id, material_name, num_required, cost) VALUES (2, 'Package of door hangers from Home Depot', 1);
-INSERT INTO step (project_id, step_text, step_order) VALUES (1, 'Align hangers on opening side of door vertically on the wall', 1); 
-INSERT INTO step (project_id, step_text, step_order) VALUES (1, 'Screw hangers into frame', 2); 
-INSERT INTO category (category_id, category_name) VALUES (1, 'Doors and Windows'); 
-INSERT INTO category (category_id, category_name) VALUES (2, 'Repairs');
-INSERT INTO category (category_id, category_name) VALUES (3, 'Gardening');
-INSERT INTO project_category (project_id, category_id) VALUES (1, 1);
-INSERT INTO project_category (project_id, category_id) VALUES (1, 2); 
+
+INSERT INTO project (project_id, project_name, estimated_hours, actual_hours, difficulty, notes) VALUES 
+(1,'Hang a door', 10, 15, 3, 'Door hangers from home depot'), (2,'Repairs', 2, 1, 2, 'Patch wall'), (3,'Gardening', 2, 1, 1, 'Gardening');
+
+INSERT INTO category (category_id, category_name) VALUES (1,'Doors and Windows'), (2,'Repairs'), (3,'Gardening');
+
+INSERT INTO material (project_id, material_name, num_required) VALUES (1, '2-inch screws', 20), (2, 'Drain Cleaner',1), (3, 'Gloves', 1);
+
+INSERT INTO step (project_id, step_text, step_order) VALUES 
+(1, 'Screw door hangers on the top, middle, and bottom of one side of the closet door frame', 1),
+(1, 'Screw door hangers on top, middle, and bottom of door', 2),
+(1, 'Use pin to join hangers on door and hangers on door frame', 3),
+(2, 'Spackle wall',1),
+(2, 'Wait for spackle to dry',2),
+(2, 'Use sandpaper to smooth out patch',3),
+(2, 'Paint patch and let dry',4),
+(3, 'Rake leaves into pile', 1),
+(3, 'Collect leaves', 2),
+(3, 'Put leaves into compost container', 3);
+
+INSERT INTO project_category (project_id, category_id) VALUES (1, 1), (2, 2), (3, 3);

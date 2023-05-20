@@ -105,6 +105,7 @@ public class ProjectsApp {
 	}
 
 	private void updateProjectDetails() {
+	
 		/* Check current project is null */
 		if(Objects.isNull(curProject)) {
 			System.out.println("\nPlease select a project. ");
