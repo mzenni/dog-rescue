@@ -1,0 +1,14 @@
+{
+	"parkName": "Jonny Sack's Cabin Pet Park",
+	"directions": "Take forest road",
+	"stateOrProvince": "RI",
+	"country": "USA",
+	"geoLocation": {
+		"latitude": "44.50045",
+		"longitude": "-111.25"
+	},
+	"amenities": [
+	"dog friendly", "cat friendly", "hot dog stand", "wifi"
+	]
+} 
+		
