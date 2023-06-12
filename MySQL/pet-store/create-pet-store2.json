@@ -1,0 +1,8 @@
+{ 
+  "petStoreName": "Rescue Pup's Palace",
+  "petStoreAddress": "101 Dalmation St",
+  "petStoreCity": "London",
+  "petStoreState": "England", 
+  "petStoreZip": "23456",
+  "petStorePhone": "234-748-0872"
+}
